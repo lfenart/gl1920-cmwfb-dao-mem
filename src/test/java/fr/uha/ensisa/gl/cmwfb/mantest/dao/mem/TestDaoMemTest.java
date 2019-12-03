@@ -42,5 +42,18 @@ public class TestDaoMemTest {
 		assertNotNull(all);
 		assertEquals(0, all.size());
 	}
+	
+	@Test
+	public void modify() {
+		assertEquals(0, sut.count());
+		fr.uha.ensisa.gl.cmwfb.mantest.Test test = new fr.uha.ensisa.gl.cmwfb.mantest.Test();
+		long id = 1;
+		test.setId(id);
+		test.setName("name");
+		sut.persist(test);
+		String newTestName = "new name";
+		sut.modify(id, newTestName);
+		assertEquals(newTestName, sut.find(id).getName());
+	}
 
 }
