@@ -32,9 +32,4 @@ public class TestDaoMem implements TestDao {
 		return this.store.size();
 	}
 
-	public Test modify(long id, String newTestName) {
-		Test test = this.store.get(id);
-		test.setName(newTestName);
-		return test;
-	}
 }
