@@ -9,6 +9,7 @@ import fr.uha.ensisa.gl.cmwfb.mantest.TestSerie;
 import fr.uha.ensisa.gl.cmwfb.mantest.dao.mem.TestSerieDaoMem;
 
 public class TestSerieDaoMemTest {
+	
 
 	@Test
 	public void empty() {
@@ -26,5 +27,14 @@ public class TestSerieDaoMemTest {
 		TestSerie serieCreated = testSerieDao.create(name);
 		assertEquals(serieCreated,testSerieDao.find(serieCreated.getId()));
 	}
+	
+	@Test
+	public void persistTestSerie() {
+		fr.uha.ensisa.gl.cmwfb.mantest.TestSerie testserie = new fr.uha.ensisa.gl.cmwfb.mantest.TestSerie(1, "hello");
+		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
+		testSerieDao.persist(testserie);
+		assertEquals(testserie,testSerieDao.find(1));
+	}
+	
 	
 }
