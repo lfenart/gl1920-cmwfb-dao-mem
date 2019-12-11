@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
+import fr.uha.ensisa.gl.cmwfb.mantest.Step;
 import fr.uha.ensisa.gl.cmwfb.mantest.Test;
 import fr.uha.ensisa.gl.cmwfb.mantest.dao.TestDao;
 
@@ -32,9 +33,16 @@ public class TestDaoMem implements TestDao {
 		return this.store.size();
 	}
 	
-	public Test modify(long id, String newName) {
-		Test test = this.find(id);
-		test.setName(newName);
+	public Test modifyName(long id, String newTestName) {
+		Test test = this.store.get(id);
+		test.setName(newTestName);
+		return test;
+	}
+	
+	public Test modifyStep(long testId, int stepId, String newStep) {
+		Test test = this.store.get(testId);
+		Step step = test.getStep(stepId);
+		step.setText(newStep);
 		return test;
 	}
 
