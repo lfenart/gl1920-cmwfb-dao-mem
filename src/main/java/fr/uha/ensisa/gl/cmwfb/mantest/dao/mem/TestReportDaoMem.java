@@ -18,15 +18,15 @@ public class TestReportDaoMem implements TestReportDao {
 	}
 	
 	@Override
-	public TestReport create(long id, Test t) {
-		TestReport testReport = new TestReport(id,t);
+	public TestReport create(Test t) {
+		TestReport testReport = new TestReport(t.getId(),t);
 		this.store.put(testReport.getId(),testReport);
 		return testReport;
 	}
 	
-	@Override
-	public long count() {
-		return this.store.size();
-	}
+	/*@Override
+	public long getNextId() {
+		return this.store.size()+1L;
+	}*/
 
 }

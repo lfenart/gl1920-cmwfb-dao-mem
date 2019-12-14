@@ -8,11 +8,8 @@ import fr.uha.ensisa.gl.cmwfb.mantest.dao.TestReportDao;
 public class DaoFactoryMem implements DaoFactory {
 	
 	public final TestDao testDao = new TestDaoMem();
-<<<<<<< HEAD
 	public final TestReportDao testReportDao = new TestReportDaoMem();
-=======
 	public final TestSerieDao testSerieDao = new TestSerieDaoMem();
->>>>>>> 6efeea2a5f317913161bdfbcb70298e9f81d3691
 
 	public TestDao getTestDao() {
 		return this.testDao;

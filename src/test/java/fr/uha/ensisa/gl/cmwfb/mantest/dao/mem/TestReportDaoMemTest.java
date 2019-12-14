@@ -23,12 +23,9 @@ public class TestReportDaoMemTest {
 		
 		@Test
 		public void Test1() {
-			assertEquals(0,sut.count());
 			fr.uha.ensisa.gl.cmwfb.mantest.Test test = new fr.uha.ensisa.gl.cmwfb.mantest.Test();
-			int stepId = 0;
-			TestReport t = sut.create(sut.count(), test);
-			assertNotNull(sut.find(stepId));
-			assertEquals(1,sut.count());
-			
+			long stepId = test.getId();
+			TestReport t = sut.create(test);
+			assertEquals(t,sut.find(stepId));
 			}
 }
