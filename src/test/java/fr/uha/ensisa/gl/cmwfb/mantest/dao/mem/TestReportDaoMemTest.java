@@ -28,4 +28,14 @@ public class TestReportDaoMemTest {
 			TestReport t = sut.create(test);
 			assertEquals(t,sut.find(stepId));
 			}
+		
+		@Test 
+		public void remove() {
+			fr.uha.ensisa.gl.cmwfb.mantest.Test test = new fr.uha.ensisa.gl.cmwfb.mantest.Test();
+			TestReport testReport = new TestReport(0,test);
+			sut.create(test);
+			assertEquals(1,sut.count());
+			sut.remove(testReport);
+			assertEquals(0,sut.count());			
+		}
 }
