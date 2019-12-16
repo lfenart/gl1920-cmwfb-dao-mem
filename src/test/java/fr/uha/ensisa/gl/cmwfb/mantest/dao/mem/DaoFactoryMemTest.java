@@ -24,6 +24,12 @@ public class DaoFactoryMemTest {
 		assertNotNull(sut);
 		assertNotNull(sut.getTestDao());
 	}
+	
+	@Test
+	public void getTestReportDao() {
+		assertNotNull(sut);
+		assertNotNull(sut.getTestReportDao());
+	}
 
 	@Test
 	public void getTestSerieDao() {
