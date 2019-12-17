@@ -36,5 +36,24 @@ public class TestSerieDaoMemTest {
 		assertEquals(testserie,testSerieDao.find(1));
 	}
 	
+	@Test
+	public void deleteATest() {
+		String name = "Test Serie Two";
+		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
+		TestSerie serieCreated = testSerieDao.create(name);
+		testSerieDao.delete(serieCreated);
+		assertNull(testSerieDao.find(serieCreated.getId()));
+	}
+	
+	@Test
+	public void modifyATest() {
+		String name = "Test Serie One";
+		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
+		TestSerie serieCreated = new TestSerie(2L,name);
+		testSerieDao.persist(serieCreated);
+		TestSerie serieDao = testSerieDao.find(serieCreated.getId());
+		assertEquals(serieCreated,serieDao);
+	}
+	
 	
 }
