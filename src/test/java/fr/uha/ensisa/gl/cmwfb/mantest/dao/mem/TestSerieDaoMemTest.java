@@ -41,7 +41,7 @@ public class TestSerieDaoMemTest {
 		String name = "Test Serie Two";
 		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
 		TestSerie serieCreated = testSerieDao.create(name);
-		testSerieDao.delete(serieCreated);
+		testSerieDao.deleteSerie(serieCreated);
 		assertNull(testSerieDao.find(serieCreated.getId()));
 	}
 	
