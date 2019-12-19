@@ -4,6 +4,10 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.Collection;
+import java.util.Map;
+import java.util.TreeMap;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -25,6 +29,7 @@ public class TestReportDaoMemTest {
 		public void Test1() {
 			fr.uha.ensisa.gl.cmwfb.mantest.Test test = new fr.uha.ensisa.gl.cmwfb.mantest.Test();
 			long stepId = test.getId();
+			assertNull(sut.find(stepId));
 			TestReport t = sut.create(test);
 			assertEquals(t,sut.find(stepId));
 			}
@@ -37,5 +42,12 @@ public class TestReportDaoMemTest {
 			assertEquals(1,sut.count());
 			sut.remove(testReport);
 			assertEquals(0,sut.count());			
+		}
+		
+		@Test
+		public void findAll() {
+			Map<Long, TestReport> all = sut.findAll();
+			assertNotNull(all);
+			assertEquals(0, all.size());
 		}
 }
