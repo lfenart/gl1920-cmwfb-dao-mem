@@ -44,4 +44,15 @@ public class TestSerieDaoMem implements TestSerieDao {
 		}
 		return toReturn;
 	}
+	
+	@Override
+	public void deleteSerie(TestSerie test) {
+		this.store.remove(test.getId());
+		for(TestSerie testSerie : this.store.values()) {
+			testSerie.removeSerie(test);
+		}
+		
+
+	}
+
 }
