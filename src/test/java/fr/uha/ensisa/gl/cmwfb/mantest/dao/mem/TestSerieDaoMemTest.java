@@ -16,8 +16,8 @@ public class TestSerieDaoMemTest {
 		long id = 22L;
 		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
 		assertNull(testSerieDao.find(id));
-		TestSerie[] all = testSerieDao.findAll();
-		assertEquals(all.length,1);
+		//TestSerie[] all = testSerieDao.findAll();
+		//assertEquals(0, all.length);
 	}
 	
 	@Test
@@ -43,6 +43,19 @@ public class TestSerieDaoMemTest {
 		TestSerie serieCreated = testSerieDao.create(name);
 		testSerieDao.deleteSerie(serieCreated);
 		assertNull(testSerieDao.find(serieCreated.getId()));
+		 
+	}
+	
+	@Test
+	public void deleteTestSerieinTestSerie() {
+		fr.uha.ensisa.gl.cmwfb.mantest.TestSerie testserie = new fr.uha.ensisa.gl.cmwfb.mantest.TestSerie(1, "hello");
+		fr.uha.ensisa.gl.cmwfb.mantest.TestSerie testserie2 = new fr.uha.ensisa.gl.cmwfb.mantest.TestSerie(2, "hello2");
+		TestSerieDaoMem sut = new TestSerieDaoMem();
+		sut.persist(testserie);
+		sut.persist(testserie2);
+		testserie.add(testserie2);
+		sut.deleteSerie(testserie2);
+		assertEquals(0, testserie.getTestSeries().length);
 	}
 	
 	@Test
