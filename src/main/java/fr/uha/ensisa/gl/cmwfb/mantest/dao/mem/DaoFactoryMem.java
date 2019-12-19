@@ -30,5 +30,4 @@ public class DaoFactoryMem implements DaoFactory {
 	public TestBookDao getTestBookDao() {
 		return this.testBookDao;
 	}
-
 }
