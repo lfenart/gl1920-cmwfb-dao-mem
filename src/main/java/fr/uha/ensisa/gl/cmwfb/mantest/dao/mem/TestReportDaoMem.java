@@ -1,7 +1,9 @@
 package fr.uha.ensisa.gl.cmwfb.mantest.dao.mem;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Map;
+import java.util.Set;
 import java.util.TreeMap;
 
 import fr.uha.ensisa.gl.cmwfb.mantest.Test;
@@ -23,20 +25,20 @@ public class TestReportDaoMem implements TestReportDao {
 		this.store.put(testReport.getId(),testReport);
 		return testReport;
 	}
-
+	
 	@Override
 	public void remove(TestReport testReport) {
-		this.store.remove(testReport.getId());		
+		this.store.remove(testReport.getId());
+	}
+	
+	@Override
+	public Map<Long, TestReport> findAll() {
+		return this.store;
 	}
 
 	@Override
 	public long count() {
 		return this.store.size();
 	}
-
-	@Override
-	public Map<Long, TestReport> findAll() {
-		return this.store;
-		}
 
 }
