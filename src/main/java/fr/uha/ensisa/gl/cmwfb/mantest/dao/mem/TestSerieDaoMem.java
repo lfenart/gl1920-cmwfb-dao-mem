@@ -26,8 +26,11 @@ public class TestSerieDaoMem implements TestSerieDao {
 
 	@Override
 	public TestSerie create(String nom) {
-		TestSerie serie = new TestSerie(this.store.size() + 1, nom);
-		this.store.put(serie.getId(), serie);
+		long id = this.store.size() + 1;
+		while (this.find(id) != null)
+			id++;
+		TestSerie serie = new TestSerie(id, nom);
+		this.store.put(id, serie);
 		return serie;
 	}
 
@@ -39,7 +42,7 @@ public class TestSerieDaoMem implements TestSerieDao {
 		}
 
 	}
-	
+
 	@Override
 	public Collection<TestSerie> findAll() {
 		return this.store.values();

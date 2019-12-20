@@ -16,8 +16,7 @@ public class TestSerieDaoMemTest {
 		long id = 22L;
 		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
 		assertNull(testSerieDao.find(id));
-		//TestSerie[] all = testSerieDao.findAll();
-		//assertEquals(0, all.length);
+		assertEquals(0, testSerieDao.findAll().size());
 	}
 	
 	@Test
@@ -26,6 +25,17 @@ public class TestSerieDaoMemTest {
 		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
 		TestSerie serieCreated = testSerieDao.create(name);
 		assertEquals(serieCreated,testSerieDao.find(serieCreated.getId()));
+	}
+	
+	@Test
+	public void createTestSerieInvalidId() {
+		String name = "Serie";
+		TestSerieDaoMem testSerieDao = new TestSerieDaoMem();
+		TestSerie one = testSerieDao.create(name);
+		testSerieDao.create(name);
+		testSerieDao.deleteSerie(one);
+		TestSerie three = testSerieDao.create(name);
+		assertEquals(3, three.getId());
 	}
 	
 	@Test
@@ -67,6 +77,5 @@ public class TestSerieDaoMemTest {
 		TestSerie serieDao = testSerieDao.find(serieCreated.getId());
 		assertEquals(serieCreated,serieDao);
 	}
-	
 	
 }
