@@ -7,16 +7,10 @@ import org.junit.Test;
 
 public class DaoFactoryMemTest {
 	fr.uha.ensisa.gl.cmwfb.mantest.dao.DaoFactory sut; // System Under Test
-	fr.uha.ensisa.gl.cmwfb.mantest.dao.DaoFactory sutS;
 	
 	@Before
 	public void createTest() {
 		sut = new fr.uha.ensisa.gl.cmwfb.mantest.dao.mem.DaoFactoryMem();
-	}
-	
-	@Before
-	public void createTestSerie() {
-		sutS = new fr.uha.ensisa.gl.cmwfb.mantest.dao.mem.DaoFactoryMem();
 	}
 
 	@Test
@@ -33,8 +27,13 @@ public class DaoFactoryMemTest {
 
 	@Test
 	public void getTestSerieDao() {
-		assertNotNull(sutS);
-		assertNotNull(sutS.getTestSerieDao());
-		
+		assertNotNull(sut);
+		assertNotNull(sut.getTestSerieDao());	
+	}
+	
+	@Test
+	public void getTestBookDao() {
+		assertNotNull(sut);
+		assertNotNull(sut.getTestBookDao());	
 	}
 }

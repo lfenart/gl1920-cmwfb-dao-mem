@@ -35,7 +35,7 @@ public class TestReportDaoMem implements TestReportDao {
 	public Map<Long, TestReport> findAll() {
 		return this.store;
 	}
-	
+
 	@Override
 	public long count() {
 		return this.store.size();

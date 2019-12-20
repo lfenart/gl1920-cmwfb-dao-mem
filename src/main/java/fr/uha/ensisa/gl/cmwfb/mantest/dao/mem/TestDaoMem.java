@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.Map;
 import java.util.TreeMap;
 
-import fr.uha.ensisa.gl.cmwfb.mantest.Step;
 import fr.uha.ensisa.gl.cmwfb.mantest.Test;
 import fr.uha.ensisa.gl.cmwfb.mantest.dao.TestDao;
 
