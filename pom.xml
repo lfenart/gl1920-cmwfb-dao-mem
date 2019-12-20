@@ -19,4 +19,27 @@
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.3.1</version>
+				<configuration>
+					<targetClasses>
+						<param>fr.uha.ensisa.gl.cmwfb.mantest.dao.mem.*</param>
+					</targetClasses>
+				</configuration>
+				<executions>
+					<execution>
+						<id>pid-report</id>
+						<phase>test</phase>
+						<goals>
+							<goal>mutationCoverage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 </project>
